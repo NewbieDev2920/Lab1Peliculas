@@ -1,11 +1,14 @@
 package classes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Pelicula {
     
-    private int IdPelicula;
-    private String titulo;
-    private String Director;
-    private Date año;    
+    private int Id;
+    private String title;
+    private String director;
+    private LocalDate year;
+    private String genre;
+    private int price;
+    
 }
