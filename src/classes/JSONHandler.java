@@ -28,7 +28,7 @@ public class JSONHandler{
     public void logPeliculas(){
         for(Pelicula p : listaPeliculas){
             System.out.println("---");
-            System.out.println(p);
+            System.out.println(p.getIdPelicula());
         }
     }
     
@@ -144,6 +144,8 @@ public class JSONHandler{
             Logger.getLogger(JSONHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
        }
+       
+       
        
    } 
    
