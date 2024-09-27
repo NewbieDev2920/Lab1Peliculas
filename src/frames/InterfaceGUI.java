@@ -19,12 +19,15 @@ public class InterfaceGUI extends javax.swing.JFrame {
      * Creates new form InterfaceGUI
      */
     int swBusquedaPelicula = 0;
+    int width = 410; 
+    int height = 310;
+    Dimension size = new Dimension(width, height);
     
     public InterfaceGUI() {
         initComponents();
 
         //Se definen dimensiones y posición del Jframe
-        setSize(400, 300);
+        setSize(width, height);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int screenWidth = screenSize.width;
         int screenHeight = screenSize.height;
@@ -58,6 +61,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         panelBienvenidos = new javax.swing.JPanel();
         lblBienvenidos = new javax.swing.JLabel();
@@ -65,12 +69,6 @@ public class InterfaceGUI extends javax.swing.JFrame {
         btnPeliculas = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
         btnCompras = new javax.swing.JButton();
-        panelPeliculas = new javax.swing.JPanel();
-        lblTitulo = new javax.swing.JLabel();
-        lblSub = new javax.swing.JLabel();
-        btnRegistrarPelicula = new javax.swing.JButton();
-        btnBuscarPelicula = new javax.swing.JButton();
-        btnRegresarBienvenido = new javax.swing.JButton();
         panelPeliculasRegistrar = new javax.swing.JPanel();
         lblTitulo1 = new javax.swing.JLabel();
         lblSub1 = new javax.swing.JLabel();
@@ -81,13 +79,6 @@ public class InterfaceGUI extends javax.swing.JFrame {
         txtPrice = new javax.swing.JTextField();
         txtGenre = new javax.swing.JTextField();
         txtYear = new javax.swing.JTextField();
-        panelPeliculasBuscar1 = new javax.swing.JPanel();
-        lblTitulo2 = new javax.swing.JLabel();
-        lblSub2 = new javax.swing.JLabel();
-        btnBuscarTitulo = new javax.swing.JButton();
-        btnBuscarDirector = new javax.swing.JButton();
-        btnRegresar2 = new javax.swing.JButton();
-        btnBuscarGenero = new javax.swing.JButton();
         panelPeliculasBuscar2 = new javax.swing.JPanel();
         lblTitulo3 = new javax.swing.JLabel();
         btnRegresar3 = new javax.swing.JButton();
@@ -96,21 +87,6 @@ public class InterfaceGUI extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnBuscarT = new javax.swing.JButton();
-        panelPeliculasModificar = new javax.swing.JPanel();
-        lblTitulo4 = new javax.swing.JLabel();
-        lblSub3 = new javax.swing.JLabel();
-        btnGuardar = new javax.swing.JButton();
-        txtTitulo2 = new javax.swing.JTextField();
-        txtDirector1 = new javax.swing.JTextField();
-        txtPrice1 = new javax.swing.JTextField();
-        txtGenre1 = new javax.swing.JTextField();
-        txtYear1 = new javax.swing.JTextField();
-        panelClientes = new javax.swing.JPanel();
-        lblTitulo5 = new javax.swing.JLabel();
-        lblSub4 = new javax.swing.JLabel();
-        btnRegistrarCliente = new javax.swing.JButton();
-        btnBuscarPelicula1 = new javax.swing.JButton();
-        btnRegresarBienvenido1 = new javax.swing.JButton();
         panelClientesRegistrar = new javax.swing.JPanel();
         lblTitulo7 = new javax.swing.JLabel();
         lblSub6 = new javax.swing.JLabel();
@@ -135,12 +111,6 @@ public class InterfaceGUI extends javax.swing.JFrame {
         txtDireccion1 = new javax.swing.JTextField();
         txtNombre1 = new javax.swing.JTextField();
         txtCorreo1 = new javax.swing.JTextField();
-        panelCompras = new javax.swing.JPanel();
-        lblTitulo6 = new javax.swing.JLabel();
-        lblSub5 = new javax.swing.JLabel();
-        btnRegistrarPelicula3 = new javax.swing.JButton();
-        btnBuscarPelicula2 = new javax.swing.JButton();
-        btnRegresarBienvenido2 = new javax.swing.JButton();
         panelComprasRegistrar = new javax.swing.JPanel();
         lblTitulo10 = new javax.swing.JLabel();
         lblSub8 = new javax.swing.JLabel();
@@ -155,10 +125,53 @@ public class InterfaceGUI extends javax.swing.JFrame {
         txtBusquedaCedula1 = new javax.swing.JTextField();
         jTextArea3 = new javax.swing.JTextArea();
         btnBuscarT2 = new javax.swing.JButton();
+        panelPeliculasModificar = new javax.swing.JPanel();
+        lblTitulo4 = new javax.swing.JLabel();
+        lblSub3 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
+        txtTitulo2 = new javax.swing.JTextField();
+        txtDirector1 = new javax.swing.JTextField();
+        txtPrice1 = new javax.swing.JTextField();
+        txtGenre1 = new javax.swing.JTextField();
+        txtYear1 = new javax.swing.JTextField();
+        panelPeliculasBuscar1 = new javax.swing.JPanel();
+        lblTitulo2 = new javax.swing.JLabel();
+        lblSub2 = new javax.swing.JLabel();
+        btnBuscarTitulo = new javax.swing.JButton();
+        btnBuscarDirector = new javax.swing.JButton();
+        btnRegresar2 = new javax.swing.JButton();
+        btnBuscarGenero = new javax.swing.JButton();
+        panelClientes = new javax.swing.JPanel();
+        lblTitulo5 = new javax.swing.JLabel();
+        lblSub4 = new javax.swing.JLabel();
+        btnRegresarBienvenido1 = new javax.swing.JButton();
+        btnRegistrarCliente = new javax.swing.JButton();
+        btnBuscarPelicula1 = new javax.swing.JButton();
+        panelPeliculas = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        lblSub = new javax.swing.JLabel();
+        btnRegistrarPelicula = new javax.swing.JButton();
+        btnBuscarPelicula = new javax.swing.JButton();
+        btnRegresarBienvenido = new javax.swing.JButton();
+        panelCompras = new javax.swing.JPanel();
+        lblTitulo6 = new javax.swing.JLabel();
+        lblSub5 = new javax.swing.JLabel();
+        btnRegistrarPelicula3 = new javax.swing.JButton();
+        btnBuscarPelicula2 = new javax.swing.JButton();
+        btnRegresarBienvenido2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
         setBounds(new java.awt.Rectangle(0, 0, 400, 300));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(new java.awt.Color(0, 0, 0));
+        setPreferredSize(size);
+        setResizable(false);
 
+        panelBienvenidos.setBackground(new java.awt.Color(204, 255, 153));
+        panelBienvenidos.setPreferredSize(size);
+
+        lblBienvenidos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblBienvenidos.setText("¡Bienvenid@!");
 
         lblPregunta.setText("¿Qué desea gestionar?");
@@ -188,28 +201,30 @@ public class InterfaceGUI extends javax.swing.JFrame {
         panelBienvenidos.setLayout(panelBienvenidosLayout);
         panelBienvenidosLayout.setHorizontalGroup(
             panelBienvenidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBienvenidosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelBienvenidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(139, 139, 139))
             .addGroup(panelBienvenidosLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(132, 132, 132)
                 .addGroup(panelBienvenidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBienvenidosLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(lblBienvenidos))
-                    .addComponent(lblPregunta))
-                .addContainerGap(121, Short.MAX_VALUE))
+                    .addComponent(lblPregunta)
+                    .addGroup(panelBienvenidosLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBienvenidosLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBienvenidosLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnCompras)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBienvenidosLayout.setVerticalGroup(
             panelBienvenidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBienvenidosLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblBienvenidos, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(51, 51, 51)
+                .addComponent(lblBienvenidos)
+                .addGap(6, 6, 6)
                 .addComponent(lblPregunta)
                 .addGap(30, 30, 30)
                 .addComponent(btnPeliculas)
@@ -217,76 +232,17 @@ public class InterfaceGUI extends javax.swing.JFrame {
                 .addComponent(btnClientes)
                 .addGap(18, 18, 18)
                 .addComponent(btnCompras)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lblTitulo.setText("Ha escogido gestionar Películas");
+        panelPeliculasRegistrar.setBackground(new java.awt.Color(255, 153, 153));
+        panelPeliculasRegistrar.setPreferredSize(size);
 
-        lblSub.setText("Desea:");
-
-        btnRegistrarPelicula.setText("Registrar");
-        btnRegistrarPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarPeliculaActionPerformed(evt);
-            }
-        });
-
-        btnBuscarPelicula.setText("Buscar");
-        btnBuscarPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPeliculaActionPerformed(evt);
-            }
-        });
-
-        btnRegresarBienvenido.setText("Regresar");
-        btnRegresarBienvenido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarBienvenidoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelPeliculasLayout = new javax.swing.GroupLayout(panelPeliculas);
-        panelPeliculas.setLayout(panelPeliculasLayout);
-        panelPeliculasLayout.setHorizontalGroup(
-            panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPeliculasLayout.createSequentialGroup()
-                .addGroup(panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPeliculasLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo)
-                            .addGroup(panelPeliculasLayout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(lblSub))))
-                    .addGroup(panelPeliculasLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(btnRegresarBienvenido)))
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(panelPeliculasLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(btnRegistrarPelicula)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-        );
-        panelPeliculasLayout.setVerticalGroup(
-            panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPeliculasLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSub)
-                .addGap(56, 56, 56)
-                .addGroup(panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarPelicula)
-                    .addComponent(btnBuscarPelicula))
-                .addGap(64, 64, 64)
-                .addComponent(btnRegresarBienvenido)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
+        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo1.setText("Ha escogido registrar Películas");
 
+        lblSub1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSub1.setText("Llene los siguientes campos:");
 
         btnRegistrarPelicula1.setText("Registrar");
@@ -296,6 +252,8 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,130 +345,65 @@ public class InterfaceGUI extends javax.swing.JFrame {
         panelPeliculasRegistrar.setLayout(panelPeliculasRegistrarLayout);
         panelPeliculasRegistrarLayout.setHorizontalGroup(
             panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPeliculasRegistrarLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistrarPelicula1)
-                    .addComponent(txtDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresar)
-                    .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+            .addComponent(lblTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSub1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelPeliculasRegistrarLayout.createSequentialGroup()
                 .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPeliculasRegistrarLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasRegistrarLayout.createSequentialGroup()
+                        .addContainerGap(32, Short.MAX_VALUE)
                         .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPeliculasRegistrarLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblSub1))
-                            .addComponent(lblTitulo1)))
+                                .addGap(8, 8, 8)
+                                .addComponent(btnRegistrarPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasRegistrarLayout.createSequentialGroup()
+                                .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                                    .addComponent(txtDirector)
+                                    .addComponent(txtGenre, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(16, 16, 16))))
                     .addGroup(panelPeliculasRegistrarLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addGap(32, 32, 32)
+                        .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtYear, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                            .addComponent(txtPrice))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelPeliculasRegistrarLayout.setVerticalGroup(
             panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPeliculasRegistrarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(lblTitulo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSub1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(panelPeliculasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegresar)
-                    .addComponent(btnRegistrarPelicula1))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(btnRegistrarPelicula1)
+                    .addComponent(btnRegresar))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
-        lblTitulo2.setText("Ha escogido buscar Películas");
+        panelPeliculasBuscar2.setBackground(new java.awt.Color(255, 153, 153));
+        panelPeliculasBuscar2.setPreferredSize(size);
 
-        lblSub2.setText("Escoja el criterio:");
-
-        btnBuscarTitulo.setText("Por Título");
-        btnBuscarTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarTituloActionPerformed(evt);
-            }
-        });
-
-        btnBuscarDirector.setText("Por Director");
-        btnBuscarDirector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarDirectorActionPerformed(evt);
-            }
-        });
-
-        btnRegresar2.setText("Regresar");
-        btnRegresar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar2ActionPerformed(evt);
-            }
-        });
-
-        btnBuscarGenero.setText("Por Género");
-        btnBuscarGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarGeneroActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelPeliculasBuscar1Layout = new javax.swing.GroupLayout(panelPeliculasBuscar1);
-        panelPeliculasBuscar1.setLayout(panelPeliculasBuscar1Layout);
-        panelPeliculasBuscar1Layout.setHorizontalGroup(
-            panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPeliculasBuscar1Layout.createSequentialGroup()
-                .addGroup(panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPeliculasBuscar1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblTitulo2))
-                    .addGroup(panelPeliculasBuscar1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addGroup(panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnBuscarDirector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBuscarTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBuscarGenero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblSub2)
-                            .addGroup(panelPeliculasBuscar1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(btnRegresar2)))))
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-        panelPeliculasBuscar1Layout.setVerticalGroup(
-            panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPeliculasBuscar1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSub2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscarTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscarDirector)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscarGenero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(btnRegresar2)
-                .addGap(33, 33, 33))
-        );
-
+        lblTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo3.setText("Ha escogido buscar Películas");
 
+        btnRegresar3.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar3.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar3.setText("Regresar");
         btnRegresar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -547,36 +440,31 @@ public class InterfaceGUI extends javax.swing.JFrame {
         });
 
         btnBuscarT.setText("Buscar");
+        btnBuscarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarTActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPeliculasBuscar2Layout = new javax.swing.GroupLayout(panelPeliculasBuscar2);
         panelPeliculasBuscar2.setLayout(panelPeliculasBuscar2Layout);
         panelPeliculasBuscar2Layout.setHorizontalGroup(
             panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(btnEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModificar)
-                .addGap(47, 47, 47))
-            .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblTitulo3))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRegresar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextArea1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(btnRegresar3))
-                    .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
-                        .addComponent(btnBuscarT)))
-                .addContainerGap(55, Short.MAX_VALUE))
-            .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasBuscar2Layout.createSequentialGroup()
-                    .addContainerGap(54, Short.MAX_VALUE)
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(54, Short.MAX_VALUE)))
+                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(15, 15, 15))
         );
         panelPeliculasBuscar2Layout.setVerticalGroup(
             panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -587,22 +475,551 @@ public class InterfaceGUI extends javax.swing.JFrame {
                 .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
                     .addComponent(btnModificar))
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegresar3)
-                .addGap(33, 33, 33))
-            .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasBuscar2Layout.createSequentialGroup()
-                    .addContainerGap(86, Short.MAX_VALUE)
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(100, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelClientesRegistrar.setBackground(new java.awt.Color(255, 204, 153));
+        panelClientesRegistrar.setPreferredSize(size);
+
+        lblTitulo7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo7.setText("Ha escogido registrar Clientes");
+
+        lblSub6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSub6.setText("Llene los siguientes campos:");
+
+        btnRegistrarClientes2.setText("Registrar");
+        btnRegistrarClientes2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarClientes2ActionPerformed(evt);
+            }
+        });
+
+        btnRegresar1.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar1.setText("Regresar");
+        btnRegresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar1ActionPerformed(evt);
+            }
+        });
+
+        txtCedula.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula.setText("Cédula");
+        txtCedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCedulaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCedulaFocusLost(evt);
+            }
+        });
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+
+        txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
+        txtDireccion.setText("Dirección");
+        txtDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDireccionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDireccionFocusLost(evt);
+            }
+        });
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
+
+        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombre.setText("Nombre Completo");
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+
+        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo.setText("Correo Electrónico");
+        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCorreoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCorreoFocusLost(evt);
+            }
+        });
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelClientesRegistrarLayout = new javax.swing.GroupLayout(panelClientesRegistrar);
+        panelClientesRegistrar.setLayout(panelClientesRegistrarLayout);
+        panelClientesRegistrarLayout.setHorizontalGroup(
+            panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSub6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesRegistrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtDireccion)
+                    .addComponent(txtCorreo)
+                    .addComponent(txtCedula)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistrarClientes2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
+        );
+        panelClientesRegistrarLayout.setVerticalGroup(
+            panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSub6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegistrarClientes2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegresar1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelClientesBuscar.setBackground(new java.awt.Color(255, 204, 153));
+        panelClientesBuscar.setPreferredSize(size);
+
+        lblTitulo8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo8.setText("Ha escogido buscar Clientes");
+
+        btnRegresar4.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar4.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar4.setText("Regresar");
+        btnRegresar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar4ActionPerformed(evt);
+            }
+        });
+
+        txtBusquedaCedula.setForeground(new java.awt.Color(153, 153, 153));
+        txtBusquedaCedula.setText("Ingrese Cédula");
+        txtBusquedaCedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBusquedaCedulaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBusquedaCedulaFocusLost(evt);
+            }
+        });
+        txtBusquedaCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaCedulaActionPerformed(evt);
+            }
+        });
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+
+        btnModificar1.setText("Modificar");
+        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificar1ActionPerformed(evt);
+            }
+        });
+
+        btnBuscarT1.setText("Buscar");
+        btnBuscarT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarT1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelClientesBuscarLayout = new javax.swing.GroupLayout(panelClientesBuscar);
+        panelClientesBuscar.setLayout(panelClientesBuscarLayout);
+        panelClientesBuscarLayout.setHorizontalGroup(
+            panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesBuscarLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesBuscarLayout.createSequentialGroup()
+                        .addComponent(btnModificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRegresar4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(panelClientesBuscarLayout.createSequentialGroup()
+                        .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelClientesBuscarLayout.createSequentialGroup()
+                                .addComponent(txtBusquedaCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarT1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))))
+        );
+        panelClientesBuscarLayout.setVerticalGroup(
+            panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClientesBuscarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo8)
+                .addGap(18, 18, 18)
+                .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBusquedaCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarT1))
+                .addGap(18, 18, 18)
+                .addComponent(jTextArea2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificar1)
+                    .addComponent(btnRegresar4))
+                .addGap(42, 42, 42))
+        );
+
+        panelClientesModificar.setBackground(new java.awt.Color(255, 204, 153));
+        panelClientesModificar.setPreferredSize(size);
+
+        lblTitulo9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo9.setText("Ha escogido modificar un Registro");
+
+        lblSub7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSub7.setText("Edite los campos que considere necesario");
+
+        btnGuardarC.setText("Guardar");
+        btnGuardarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCActionPerformed(evt);
+            }
+        });
+
+        txtCedula1.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula1.setText("Cédula");
+        txtCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCedula1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCedula1FocusLost(evt);
+            }
+        });
+        txtCedula1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedula1ActionPerformed(evt);
+            }
+        });
+
+        txtDireccion1.setForeground(new java.awt.Color(153, 153, 153));
+        txtDireccion1.setText("Dirección");
+        txtDireccion1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDireccion1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDireccion1FocusLost(evt);
+            }
+        });
+        txtDireccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccion1ActionPerformed(evt);
+            }
+        });
+
+        txtNombre1.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombre1.setText("Nombre Completo");
+        txtNombre1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtNombre1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombre1FocusLost(evt);
+            }
+        });
+        txtNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombre1ActionPerformed(evt);
+            }
+        });
+
+        txtCorreo1.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo1.setText("Correo Electrónico");
+        txtCorreo1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCorreo1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCorreo1FocusLost(evt);
+            }
+        });
+        txtCorreo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreo1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelClientesModificarLayout = new javax.swing.GroupLayout(panelClientesModificar);
+        panelClientesModificar.setLayout(panelClientesModificarLayout);
+        panelClientesModificarLayout.setHorizontalGroup(
+            panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSub7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelClientesModificarLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnGuardarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDireccion1)
+                    .addComponent(txtCorreo1)
+                    .addComponent(txtCedula1)
+                    .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        panelClientesModificarLayout.setVerticalGroup(
+            panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelClientesModificarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSub7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGuardarC)
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+
+        panelComprasRegistrar.setBackground(new java.awt.Color(255, 255, 153));
+        panelComprasRegistrar.setPreferredSize(size);
+
+        lblTitulo10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo10.setText("Ha escogido registrar Compras");
+
+        lblSub8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSub8.setText("Llene los siguientes campos:");
+
+        btnRegistrarCompra.setText("Registrar");
+        btnRegistrarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarCompraActionPerformed(evt);
+            }
+        });
+
+        btnRegresar5.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar5.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar5.setText("Regresar");
+        btnRegresar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar5ActionPerformed(evt);
+            }
+        });
+
+        txtCedula2.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula2.setText("Cédula");
+        txtCedula2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCedula2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCedula2FocusLost(evt);
+            }
+        });
+        txtCedula2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedula2ActionPerformed(evt);
+            }
+        });
+
+        txtFecha.setForeground(new java.awt.Color(153, 153, 153));
+        txtFecha.setText("Fecha (dd/mm/aa)");
+        txtFecha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFechaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtFechaFocusLost(evt);
+            }
+        });
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
+
+        txtIDPelicula.setForeground(new java.awt.Color(153, 153, 153));
+        txtIDPelicula.setText("ID Película");
+        txtIDPelicula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtIDPeliculaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIDPeliculaFocusLost(evt);
+            }
+        });
+        txtIDPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDPeliculaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelComprasRegistrarLayout = new javax.swing.GroupLayout(panelComprasRegistrar);
+        panelComprasRegistrar.setLayout(panelComprasRegistrarLayout);
+        panelComprasRegistrarLayout.setHorizontalGroup(
+            panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSub8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasRegistrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnRegistrarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(txtCedula2)
+                    .addComponent(txtIDPelicula))
+                .addGap(40, 40, 40))
+            .addGroup(panelComprasRegistrarLayout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addComponent(btnRegresar5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+        panelComprasRegistrarLayout.setVerticalGroup(
+            panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComprasRegistrarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSub8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(txtCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegistrarCompra)
+                .addGap(35, 35, 35)
+                .addComponent(btnRegresar5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelComprasBuscar.setBackground(new java.awt.Color(255, 255, 153));
+        panelComprasBuscar.setPreferredSize(size);
+
+        lblTitulo11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo11.setText("Ha escogido buscar Compras");
+
+        btnRegresar6.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar6.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar6.setText("Regresar");
+        btnRegresar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar6ActionPerformed(evt);
+            }
+        });
+
+        txtBusquedaCedula1.setForeground(new java.awt.Color(153, 153, 153));
+        txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
+        txtBusquedaCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBusquedaCedula1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBusquedaCedula1FocusLost(evt);
+            }
+        });
+        txtBusquedaCedula1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaCedula1ActionPerformed(evt);
+            }
+        });
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+
+        btnBuscarT2.setText("Buscar");
+        btnBuscarT2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarT2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelComprasBuscarLayout = new javax.swing.GroupLayout(panelComprasBuscar);
+        panelComprasBuscar.setLayout(panelComprasBuscarLayout);
+        panelComprasBuscarLayout.setHorizontalGroup(
+            panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasBuscarLayout.createSequentialGroup()
+                .addGap(0, 13, Short.MAX_VALUE)
+                .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnRegresar6, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                    .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextArea3, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelComprasBuscarLayout.createSequentialGroup()
+                            .addComponent(txtBusquedaCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscarT2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, Short.MAX_VALUE))))
+                .addGap(14, 14, 14))
+        );
+        panelComprasBuscarLayout.setVerticalGroup(
+            panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComprasBuscarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo11)
+                .addGap(18, 18, 18)
+                .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBusquedaCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarT2))
+                .addGap(18, 18, 18)
+                .addComponent(jTextArea3, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegresar6)
+                .addGap(37, 37, 37))
+        );
+
+        panelPeliculasModificar.setBackground(new java.awt.Color(255, 153, 153));
+        panelPeliculasModificar.setPreferredSize(size);
+
+        lblTitulo4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo4.setText("Ha escogido modificar un Registro");
 
+        lblSub3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSub3.setText("Edite los campos que considere necesario");
 
         btnGuardar.setText("Guardar");
@@ -696,58 +1113,134 @@ public class InterfaceGUI extends javax.swing.JFrame {
         panelPeliculasModificar.setLayout(panelPeliculasModificarLayout);
         panelPeliculasModificarLayout.setHorizontalGroup(
             panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPeliculasModificarLayout.createSequentialGroup()
-                .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPeliculasModificarLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblTitulo4))
-                    .addGroup(panelPeliculasModificarLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnGuardar)
-                            .addComponent(txtTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(57, Short.MAX_VALUE))
+            .addComponent(lblTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSub3, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasModificarLayout.createSequentialGroup()
-                .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelPeliculasModificarLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSub3))
-                    .addGroup(panelPeliculasModificarLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDirector1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                        .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGenre1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                    .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtPrice1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                        .addComponent(txtYear1)
+                        .addComponent(txtGenre1)
+                        .addComponent(txtDirector1)
+                        .addComponent(txtTitulo2)))
+                .addGap(20, 20, 20))
         );
         panelPeliculasModificarLayout.setVerticalGroup(
             panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPeliculasModificarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(lblTitulo4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSub3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGenre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDirector1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelPeliculasModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDirector1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtGenre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardar)
-                .addGap(30, 30, 30))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelPeliculasBuscar1.setBackground(new java.awt.Color(255, 153, 153));
+        panelPeliculasBuscar1.setPreferredSize(size);
+
+        lblTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo2.setText("Ha escogido buscar Películas");
+
+        lblSub2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSub2.setText("Escoja el criterio:");
+
+        btnBuscarTitulo.setText("Por Título");
+        btnBuscarTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarTituloActionPerformed(evt);
+            }
+        });
+
+        btnBuscarDirector.setText("Por Director");
+        btnBuscarDirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarDirectorActionPerformed(evt);
+            }
+        });
+
+        btnRegresar2.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresar2.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar2.setText("Regresar");
+        btnRegresar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresar2ActionPerformed(evt);
+            }
+        });
+
+        btnBuscarGenero.setText("Por Género");
+        btnBuscarGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarGeneroActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelPeliculasBuscar1Layout = new javax.swing.GroupLayout(panelPeliculasBuscar1);
+        panelPeliculasBuscar1.setLayout(panelPeliculasBuscar1Layout);
+        panelPeliculasBuscar1Layout.setHorizontalGroup(
+            panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(lblSub2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasBuscar1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnRegresar2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                    .addGroup(panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnBuscarGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscarDirector, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                        .addComponent(btnBuscarTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(54, 54, 54))
+        );
+        panelPeliculasBuscar1Layout.setVerticalGroup(
+            panelPeliculasBuscar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPeliculasBuscar1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSub2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarDirector)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarGenero)
+                .addGap(51, 51, 51)
+                .addComponent(btnRegresar2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelClientes.setBackground(new java.awt.Color(255, 204, 153));
+        panelClientes.setPreferredSize(size);
+
+        lblTitulo5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo5.setText("Ha escogido gestionar Clientes");
 
+        lblSub4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSub4.setText("Desea:");
+
+        btnRegresarBienvenido1.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresarBienvenido1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresarBienvenido1.setText("Regresar");
+        btnRegresarBienvenido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarBienvenido1ActionPerformed(evt);
+            }
+        });
 
         btnRegistrarCliente.setText("Registrar");
         btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -763,396 +1256,111 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        btnRegresarBienvenido1.setText("Regresar");
-        btnRegresarBienvenido1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresarBienvenido1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
         panelClientes.setLayout(panelClientesLayout);
         panelClientesLayout.setHorizontalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClientesLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelClientesLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo5)
-                            .addGroup(panelClientesLayout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(lblSub4))))
-                    .addGroup(panelClientesLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(btnRegresarBienvenido1)))
-                .addContainerGap(90, Short.MAX_VALUE))
-            .addGroup(panelClientesLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(btnRegistrarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscarPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                    .addComponent(lblTitulo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSub4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesLayout.createSequentialGroup()
+                        .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarPelicula1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRegresarBienvenido1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
         panelClientesLayout.setVerticalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClientesLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(lblTitulo5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSub4)
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarCliente)
                     .addComponent(btnBuscarPelicula1))
-                .addGap(64, 64, 64)
+                .addGap(67, 67, 67)
                 .addComponent(btnRegresarBienvenido1)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
 
-        lblTitulo7.setText("Ha escogido registrar Clientes");
+        panelPeliculas.setBackground(new java.awt.Color(255, 153, 153));
+        panelPeliculas.setPreferredSize(size);
 
-        lblSub6.setText("Llene los siguientes campos:");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("Ha escogido gestionar Películas");
 
-        btnRegistrarClientes2.setText("Registrar");
-        btnRegistrarClientes2.addActionListener(new java.awt.event.ActionListener() {
+        lblSub.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSub.setText("Desea:");
+
+        btnRegistrarPelicula.setText("Registrar");
+        btnRegistrarPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarClientes2ActionPerformed(evt);
+                btnRegistrarPeliculaActionPerformed(evt);
             }
         });
 
-        btnRegresar1.setText("Regresar");
-        btnRegresar1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarPelicula.setText("Buscar");
+        btnBuscarPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar1ActionPerformed(evt);
+                btnBuscarPeliculaActionPerformed(evt);
             }
         });
 
-        txtCedula.setForeground(new java.awt.Color(153, 153, 153));
-        txtCedula.setText("Cédula");
-        txtCedula.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCedulaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCedulaFocusLost(evt);
-            }
-        });
-        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresarBienvenido.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresarBienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresarBienvenido.setText("Regresar");
+        btnRegresarBienvenido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaActionPerformed(evt);
+                btnRegresarBienvenidoActionPerformed(evt);
             }
         });
 
-        txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
-        txtDireccion.setText("Dirección");
-        txtDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtDireccionFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDireccionFocusLost(evt);
-            }
-        });
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
-            }
-        });
-
-        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("Nombre Completo");
-        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNombreFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNombreFocusLost(evt);
-            }
-        });
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-
-        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        txtCorreo.setText("Correo Electrónico");
-        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCorreoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCorreoFocusLost(evt);
-            }
-        });
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelClientesRegistrarLayout = new javax.swing.GroupLayout(panelClientesRegistrar);
-        panelClientesRegistrar.setLayout(panelClientesRegistrarLayout);
-        panelClientesRegistrarLayout.setHorizontalGroup(
-            panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistrarClientes2)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnRegresar1)
-                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)))
-                .addGap(40, 40, 40))
-            .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblSub6))
-                    .addComponent(lblTitulo7))
-                .addContainerGap(84, Short.MAX_VALUE))
+        javax.swing.GroupLayout panelPeliculasLayout = new javax.swing.GroupLayout(panelPeliculas);
+        panelPeliculas.setLayout(panelPeliculasLayout);
+        panelPeliculasLayout.setHorizontalGroup(
+            panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSub, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelPeliculasLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegresarBienvenido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelPeliculasLayout.createSequentialGroup()
+                        .addComponent(btnRegistrarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
-        panelClientesRegistrarLayout.setVerticalGroup(
-            panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSub6)
-                .addGap(49, 49, 49)
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegresar1)
-                    .addComponent(btnRegistrarClientes2))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        lblTitulo8.setText("Ha escogido buscar Clientes");
-
-        btnRegresar4.setText("Regresar");
-        btnRegresar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar4ActionPerformed(evt);
-            }
-        });
-
-        txtBusquedaCedula.setForeground(new java.awt.Color(153, 153, 153));
-        txtBusquedaCedula.setText("Ingrese Cédula");
-        txtBusquedaCedula.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtBusquedaCedulaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtBusquedaCedulaFocusLost(evt);
-            }
-        });
-        txtBusquedaCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBusquedaCedulaActionPerformed(evt);
-            }
-        });
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-
-        btnModificar1.setText("Modificar");
-        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificar1ActionPerformed(evt);
-            }
-        });
-
-        btnBuscarT1.setText("Buscar");
-
-        javax.swing.GroupLayout panelClientesBuscarLayout = new javax.swing.GroupLayout(panelClientesBuscar);
-        panelClientesBuscar.setLayout(panelClientesBuscarLayout);
-        panelClientesBuscarLayout.setHorizontalGroup(
-            panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelClientesBuscarLayout.createSequentialGroup()
-                .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelClientesBuscarLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblTitulo8))
-                    .addGroup(panelClientesBuscarLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelClientesBuscarLayout.createSequentialGroup()
-                                .addComponent(btnRegresar4)
-                                .addGap(86, 86, 86)
-                                .addComponent(btnModificar1))
-                            .addGroup(panelClientesBuscarLayout.createSequentialGroup()
-                                .addComponent(txtBusquedaCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(79, 79, 79)
-                                .addComponent(btnBuscarT1)))))
-                .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesBuscarLayout.createSequentialGroup()
-                    .addContainerGap(54, Short.MAX_VALUE)
-                    .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(54, Short.MAX_VALUE)))
-        );
-        panelClientesBuscarLayout.setVerticalGroup(
-            panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelClientesBuscarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo8)
-                .addGap(18, 18, 18)
-                .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusquedaCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarT1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar1)
-                    .addComponent(btnRegresar4))
-                .addGap(42, 42, 42))
-            .addGroup(panelClientesBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesBuscarLayout.createSequentialGroup()
-                    .addContainerGap(86, Short.MAX_VALUE)
-                    .addComponent(jTextArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(100, Short.MAX_VALUE)))
-        );
-
-        lblTitulo9.setText("Ha escogido modificar un Registro");
-
-        lblSub7.setText("Edite los campos que considere necesario");
-
-        btnGuardarC.setText("Guardar");
-        btnGuardarC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarCActionPerformed(evt);
-            }
-        });
-
-        txtCedula1.setForeground(new java.awt.Color(153, 153, 153));
-        txtCedula1.setText("Cédula");
-        txtCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCedula1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCedula1FocusLost(evt);
-            }
-        });
-        txtCedula1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedula1ActionPerformed(evt);
-            }
-        });
-
-        txtDireccion1.setForeground(new java.awt.Color(153, 153, 153));
-        txtDireccion1.setText("Dirección");
-        txtDireccion1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtDireccion1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDireccion1FocusLost(evt);
-            }
-        });
-        txtDireccion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccion1ActionPerformed(evt);
-            }
-        });
-
-        txtNombre1.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre1.setText("Nombre Completo");
-        txtNombre1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNombre1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNombre1FocusLost(evt);
-            }
-        });
-        txtNombre1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombre1ActionPerformed(evt);
-            }
-        });
-
-        txtCorreo1.setForeground(new java.awt.Color(153, 153, 153));
-        txtCorreo1.setText("Correo Electrónico");
-        txtCorreo1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCorreo1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCorreo1FocusLost(evt);
-            }
-        });
-        txtCorreo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreo1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelClientesModificarLayout = new javax.swing.GroupLayout(panelClientesModificar);
-        panelClientesModificar.setLayout(panelClientesModificarLayout);
-        panelClientesModificarLayout.setHorizontalGroup(
-            panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelClientesModificarLayout.createSequentialGroup()
-                .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelClientesModificarLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblTitulo9))
-                    .addGroup(panelClientesModificarLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(btnGuardarC)))
+        panelPeliculasLayout.setVerticalGroup(
+            panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPeliculasLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lblTitulo)
+                .addGap(6, 6, 6)
+                .addComponent(lblSub)
+                .addGap(35, 35, 35)
+                .addGroup(panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarPelicula)
+                    .addComponent(btnBuscarPelicula))
+                .addGap(69, 69, 69)
+                .addComponent(btnRegresarBienvenido)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesModificarLayout.createSequentialGroup()
-                .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelClientesModificarLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSub7))
-                    .addGroup(panelClientesModificarLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45))
-        );
-        panelClientesModificarLayout.setVerticalGroup(
-            panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelClientesModificarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSub7)
-                .addGap(49, 49, 49)
-                .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelClientesModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDireccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnGuardarC)
-                .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        panelCompras.setBackground(new java.awt.Color(255, 255, 153));
+        panelCompras.setPreferredSize(size);
+
+        lblTitulo6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTitulo6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo6.setText("Ha escogido gestionar Compras");
 
+        lblSub5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSub5.setText("Desea:");
 
         btnRegistrarPelicula3.setText("Registrar");
@@ -1169,6 +1377,8 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
+        btnRegresarBienvenido2.setBackground(new java.awt.Color(0, 0, 0));
+        btnRegresarBienvenido2.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresarBienvenido2.setText("Regresar");
         btnRegresarBienvenido2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1180,306 +1390,102 @@ public class InterfaceGUI extends javax.swing.JFrame {
         panelCompras.setLayout(panelComprasLayout);
         panelComprasLayout.setHorizontalGroup(
             panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComprasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasLayout.createSequentialGroup()
                 .addGroup(panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelComprasLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo6)
-                            .addGroup(panelComprasLayout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(lblSub5))))
-                    .addGroup(panelComprasLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(btnRegresarBienvenido2)))
-                .addContainerGap(82, Short.MAX_VALUE))
-            .addGroup(panelComprasLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblTitulo6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSub5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(btnRegistrarPelicula3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscarPelicula2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRegresarBienvenido2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelComprasLayout.createSequentialGroup()
+                        .addComponent(btnRegistrarPelicula3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarPelicula2, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)))
                 .addGap(35, 35, 35))
         );
         panelComprasLayout.setVerticalGroup(
             panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelComprasLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(lblTitulo6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSub5)
-                .addGap(56, 56, 56)
+                .addGap(47, 47, 47)
                 .addGroup(panelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarPelicula3)
                     .addComponent(btnBuscarPelicula2))
-                .addGap(64, 64, 64)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegresarBienvenido2)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        lblTitulo10.setText("Ha escogido registrar Compras");
-
-        lblSub8.setText("Llene los siguientes campos:");
-
-        btnRegistrarCompra.setText("Registrar");
-        btnRegistrarCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarCompraActionPerformed(evt);
-            }
-        });
-
-        btnRegresar5.setText("Regresar");
-        btnRegresar5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar5ActionPerformed(evt);
-            }
-        });
-
-        txtCedula2.setForeground(new java.awt.Color(153, 153, 153));
-        txtCedula2.setText("Cédula");
-        txtCedula2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCedula2FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCedula2FocusLost(evt);
-            }
-        });
-        txtCedula2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedula2ActionPerformed(evt);
-            }
-        });
-
-        txtFecha.setForeground(new java.awt.Color(153, 153, 153));
-        txtFecha.setText("Fecha (dd/mm/aa)");
-        txtFecha.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtFechaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtFechaFocusLost(evt);
-            }
-        });
-        txtFecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaActionPerformed(evt);
-            }
-        });
-
-        txtIDPelicula.setForeground(new java.awt.Color(153, 153, 153));
-        txtIDPelicula.setText("ID Película");
-        txtIDPelicula.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtIDPeliculaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtIDPeliculaFocusLost(evt);
-            }
-        });
-        txtIDPelicula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDPeliculaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelComprasRegistrarLayout = new javax.swing.GroupLayout(panelComprasRegistrar);
-        panelComprasRegistrar.setLayout(panelComprasRegistrarLayout);
-        panelComprasRegistrarLayout.setHorizontalGroup(
-            panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComprasRegistrarLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelComprasRegistrarLayout.createSequentialGroup()
-                        .addComponent(txtIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtFecha, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasRegistrarLayout.createSequentialGroup()
-                        .addComponent(btnRegistrarCompra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRegresar5)))
-                .addGap(40, 40, 40))
-            .addGroup(panelComprasRegistrarLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo10)
-                    .addComponent(lblSub8))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-        panelComprasRegistrarLayout.setVerticalGroup(
-            panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComprasRegistrarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSub8)
-                .addGap(49, 49, 49)
-                .addGroup(panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(panelComprasRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegresar5)
-                    .addComponent(btnRegistrarCompra))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        lblTitulo11.setText("Ha escogido buscar Compras");
-
-        btnRegresar6.setText("Regresar");
-        btnRegresar6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar6ActionPerformed(evt);
-            }
-        });
-
-        txtBusquedaCedula1.setForeground(new java.awt.Color(153, 153, 153));
-        txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
-        txtBusquedaCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtBusquedaCedula1FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtBusquedaCedula1FocusLost(evt);
-            }
-        });
-        txtBusquedaCedula1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBusquedaCedula1ActionPerformed(evt);
-            }
-        });
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-
-        btnBuscarT2.setText("Buscar");
-
-        javax.swing.GroupLayout panelComprasBuscarLayout = new javax.swing.GroupLayout(panelComprasBuscar);
-        panelComprasBuscar.setLayout(panelComprasBuscarLayout);
-        panelComprasBuscarLayout.setHorizontalGroup(
-            panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComprasBuscarLayout.createSequentialGroup()
-                .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelComprasBuscarLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(lblTitulo11))
-                    .addGroup(panelComprasBuscarLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnRegresar6)
-                            .addComponent(txtBusquedaCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscarT2)))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasBuscarLayout.createSequentialGroup()
-                    .addContainerGap(63, Short.MAX_VALUE)
-                    .addComponent(jTextArea3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(64, Short.MAX_VALUE)))
-        );
-        panelComprasBuscarLayout.setVerticalGroup(
-            panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComprasBuscarLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lblTitulo11)
-                .addGap(18, 18, 18)
-                .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusquedaCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarT2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(btnRegresar6)
-                .addGap(42, 42, 42))
-            .addGroup(panelComprasBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComprasBuscarLayout.createSequentialGroup()
-                    .addContainerGap(86, Short.MAX_VALUE)
-                    .addComponent(jTextArea3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(100, Short.MAX_VALUE)))
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBienvenidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap()))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelPeliculasRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelPeliculasModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(12, 12, 12)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelPeliculasBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelPeliculasBuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelClientesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(panelComprasBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(6, 6, 6)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(22, Short.MAX_VALUE)
-                    .addComponent(panelClientesRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(2, 2, 2))
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(22, Short.MAX_VALUE)
-                    .addComponent(panelClientesModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(2, 2, 2))
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(22, Short.MAX_VALUE)
-                    .addComponent(panelComprasRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(2, 2, 2)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelClientesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addComponent(panelPeliculasBuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addComponent(panelBienvenidos, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelPeliculasModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelPeliculasRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(panelCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(412, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(panelClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(panelPeliculas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                        .addGap(0, 0, 0)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelComprasBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(panelClientesRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(panelClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelPeliculasBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(panelComprasRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBienvenidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panelClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panelCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(panelPeliculasRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(12, 12, 12)
-                    .addComponent(panelPeliculasModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(12, 12, 12)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
-                    .addComponent(panelPeliculasBuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(6, 6, 6)
-                    .addComponent(panelPeliculasBuscar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(6, 6, 6)
-                    .addComponent(panelClientesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(6, 6, 6)
-                    .addComponent(panelComprasBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(12, 12, 12)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(panelClientesRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(22, 22, 22)
-                    .addComponent(panelComprasRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(22, 22, 22)
-                    .addComponent(panelClientesModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(520, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(panelClientesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(panelPeliculas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(panelComprasBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(panelClientesRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                    .addComponent(panelClientesModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelPeliculasBuscar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(panelPeliculasBuscar2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(panelComprasRegistrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(panelClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCompras, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(panelPeliculasRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(panelBienvenidos, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(panelPeliculasModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -2036,16 +2042,52 @@ public class InterfaceGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresar6ActionPerformed
 
     private void txtBusquedaCedula1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaCedula1FocusGained
-        // TODO add your handling code here:
+        if (txtBusquedaCedula1.getText().equals("Ingrese Fecha (dd/mm/aa)")) {
+            txtBusquedaCedula1.setText("");
+            txtBusquedaCedula1.setForeground(new Color(0, 0, 0));
+        }
     }//GEN-LAST:event_txtBusquedaCedula1FocusGained
 
     private void txtBusquedaCedula1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaCedula1FocusLost
-        // TODO add your handling code here:
+        if (txtBusquedaCedula1.getText().equals("")) {
+            txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
+            txtBusquedaCedula1.setForeground(new Color(153, 153, 153));
+        }
     }//GEN-LAST:event_txtBusquedaCedula1FocusLost
 
     private void txtBusquedaCedula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaCedula1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusquedaCedula1ActionPerformed
+
+    private void btnBuscarT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarT2ActionPerformed
+        // Get text
+        txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
+        txtBusquedaCedula1.setForeground(new Color(153, 153, 153));
+    }//GEN-LAST:event_btnBuscarT2ActionPerformed
+
+    private void btnBuscarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTActionPerformed
+        if (swBusquedaPelicula == 1) {
+            // Get text
+            txtBusqueda.setText("Ingrese Título");
+            txtBusqueda.setForeground(new Color(153, 153, 153));
+        }
+        if (swBusquedaPelicula == 2) {
+            // Get text
+            txtBusqueda.setText("Ingrese Director");
+            txtBusqueda.setForeground(new Color(153, 153, 153));
+        }
+        if (swBusquedaPelicula == 3) {
+            // Get text
+            txtBusqueda.setText("Ingrese Género");
+            txtBusqueda.setForeground(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_btnBuscarTActionPerformed
+
+    private void btnBuscarT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarT1ActionPerformed
+        // Get text
+        txtBusquedaCedula.setText("Ingrese Cédula");
+        txtBusquedaCedula.setForeground(new Color(153, 153, 153));
+    }//GEN-LAST:event_btnBuscarT1ActionPerformed
 
     /**
      * @param args the command line arguments
