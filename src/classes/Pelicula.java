@@ -44,6 +44,24 @@ public class Pelicula {
         return price;
     }
     
-    
+    public void setAttribute(String key, String value){
+        if(key.equalsIgnoreCase("title")){
+            this.title  = value;
+        }
+        else if(key.equalsIgnoreCase("director")){
+            this.director = value;
+        }
+        else if(key.equalsIgnoreCase("year")){
+            this.year = value;
+        }
+        else if(key.equalsIgnoreCase("genre")){
+            this.genre = value;
+        }
+        else if(key.equalsIgnoreCase("price")){
+            this.price = value;
+        }else{
+            System.out.println("No existe este atributo");
+        }
+    }
     
 }

@@ -31,7 +31,17 @@ public class Compra {
     public String getFechaCompra() {
         return fechaCompra;
     }
-    
-    
-    
+
+    public void setAttribute(String key, String value) {
+        
+        if (key.equalsIgnoreCase("idClient")) {
+            this.idClient = value;
+        } else if (key.equalsIgnoreCase("idMovie")) {
+            this.idMovie = value;
+        } else if (key.equalsIgnoreCase("fechaCompra")) {
+            this.fechaCompra = value;
+        }
+        
+    }
+
 }
