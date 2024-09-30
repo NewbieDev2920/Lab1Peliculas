@@ -1077,13 +1077,11 @@
                   <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="btnRegresar6" pref="373" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextArea3" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="txtBusquedaCedula1" min="-2" pref="297" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnBuscarT2" pref="70" max="32767" attributes="0"/>
-                          </Group>
+                      <Component id="jTextArea3" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtBusquedaCedula1" min="-2" pref="297" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnBuscarT2" pref="70" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -1181,13 +1179,11 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="btnGuardar" pref="360" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="txtPrice1" pref="360" max="32767" attributes="0"/>
-                          <Component id="txtYear1" max="32767" attributes="0"/>
-                          <Component id="txtGenre1" max="32767" attributes="0"/>
-                          <Component id="txtDirector1" max="32767" attributes="0"/>
-                          <Component id="txtTitulo2" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="txtPrice1" pref="360" max="32767" attributes="0"/>
+                      <Component id="txtYear1" max="32767" attributes="0"/>
+                      <Component id="txtGenre1" max="32767" attributes="0"/>
+                      <Component id="txtDirector1" max="32767" attributes="0"/>
+                      <Component id="txtTitulo2" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
@@ -1330,11 +1326,9 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="btnRegresar2" pref="290" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnBuscarGenero" max="32767" attributes="0"/>
-                          <Component id="btnBuscarDirector" pref="290" max="32767" attributes="0"/>
-                          <Component id="btnBuscarTitulo" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnBuscarGenero" max="32767" attributes="0"/>
+                      <Component id="btnBuscarDirector" pref="290" max="32767" attributes="0"/>
+                      <Component id="btnBuscarTitulo" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
@@ -1622,15 +1616,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblTitulo6" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblSub5" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="lblTitulo6" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lblSub5" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

@@ -24,7 +24,11 @@ public class JSONHandler {
     protected ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
     protected ArrayList<Cliente> listaClientes = new ArrayList<>();
     protected ArrayList<Compra> listaCompras = new ArrayList<>();
-    private Query consultant = new Query();
+    private Query consultant;
+    
+    public void setConsultant(Query q){
+        this.consultant = q;
+    }
 
     public void logPeliculas() {
         for (Pelicula p : listaPeliculas) {
