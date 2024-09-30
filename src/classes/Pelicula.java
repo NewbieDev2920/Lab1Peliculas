@@ -11,6 +11,13 @@ public class Pelicula {
     private String genre;
     private String price;
 
+    @Override
+    public String toString() {
+        return "Pelicula{" + "idPelicula=" + idPelicula + ", title=" + title + ", director=" + director + ", year=" + year + ", genre=" + genre + ", price=" + price + '}';
+    }
+    
+    
+
     public Pelicula(String idPelicula, String title, String director, String year, String genre, String price) {
         this.idPelicula = idPelicula;
         this.title = title;

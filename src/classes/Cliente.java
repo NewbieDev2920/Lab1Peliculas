@@ -9,7 +9,7 @@ public class Cliente {
     private String email;
     private String address;
     private ArrayList<Compra> historial;
-
+  
     public Cliente(String idCliente, String name, String email, String address) {
         this.idCliente = idCliente;
         this.name = name;
@@ -17,7 +17,13 @@ public class Cliente {
         this.address = address;
         this.historial = new ArrayList<>();
     }
+    
+    @Override
+    public String toString() {
+        return "Cliente{" + "idCliente=" + idCliente + ", name=" + name + ", email=" + email + ", address=" + address + ", historial=" + historial + '}';
+    }
 
+    
     public String getIdCliente() {
         return idCliente;
     }
@@ -56,6 +62,9 @@ public class Cliente {
         }
         else if(key.equalsIgnoreCase("address")){
             this.address = value;
+        }
+        else if(key.equalsIgnoreCase("idCliente")){
+            this.idCliente = value;
         }
         
     }

@@ -17,98 +17,107 @@ public class ValidateId {
     private ArrayList<Integer> idCompras = new ArrayList<>();
 
     public ValidateId(ArrayList<Pelicula> p, ArrayList<Cliente> cl, ArrayList<Compra> co) {
-        updateLists(p,cl,co);
+        updateLists(p, cl, co);
     }
-    
-    public void updateLists(ArrayList<Pelicula> p, ArrayList<Cliente> cl, ArrayList<Compra> co){
+
+    public void updateLists(ArrayList<Pelicula> p, ArrayList<Cliente> cl, ArrayList<Compra> co) {
         idPeliculas.clear();
         idClientes.clear();
         idCompras.clear();
         for (Pelicula i : p) {
+            System.out.println(i.getTitle());
             idPeliculas.add(Integer.valueOf(i.getIdPelicula()));
         }
 
         for (Cliente i : cl) {
-            idPeliculas.add(Integer.valueOf(i.getIdCliente()));
+            idClientes.add(Integer.valueOf(i.getIdCliente()));
         }
 
         for (Compra i : co) {
-            idPeliculas.add(Integer.valueOf(i.getIdCompra()));
+            idCompras.add(Integer.valueOf(i.getIdCompra()));
         }
     }
-    
-    public void validateIds() throws RepeatedIdException{
-       for(int i = 0; i < idPeliculas.size(); i++){
-           for(int j = 0; j < idPeliculas.size(); j++){
-               if(idPeliculas.get(j) == idPeliculas.get(i)){
-                   throw new RepeatedIdException("ID de peliculas repetido");
-               }
-           }
-           
-       }
-       
-        for(int i = 0; i < idClientes.size(); i++){
-           for(int j = 0; j < idClientes.size(); j++){
-               if(idClientes.get(j) == idClientes.get(i)){
-                   throw new RepeatedIdException("ID de clientes repetido");
-               }
-           }
-           
-       }
+
+    public boolean validateIds(String tipo, int id){
+        if (tipo.equalsIgnoreCase("cliente")) {
+             for (int j = 0; j < idClientes.size(); j++) {
+                    if (id == idClientes.get(j)) {
+                        return true;
+                    }
+                }
+        } else {
+            for (int i = 0; i < idPeliculas.size(); i++) {
+                for (int j = 0; j < idPeliculas.size(); j++) {
+                    if (idPeliculas.get(i) == idPeliculas.get(j)) {
+                        System.out.println("error id repetido");
+                    }
+                }
+
+            }
+
+            for (int i = 0; i < idCompras.size(); i++) {
+                for (int j = 0; j < idCompras.size(); j++) {
+                    if (idCompras.get(j) == idCompras.get(j)) {
+                        System.out.println("error id repetido");
+                    }
+                }
+
+            }
+        }
         
-         for(int i = 0; i < idCompras.size(); i++){
-           for(int j = 0; j < idCompras.size(); j++){
-               if(idCompras.get(j) == idCompras.get(i)){
-                   throw new RepeatedIdException("ID de peliculas repetido");
-               }
-           }
-           
-       }
-       
+        return false;
+
     }
+    
 
     public int generateId(String tipoDeDato) {
         int mayor, id = -1;
 
         switch (tipoDeDato.toLowerCase()) {
             case "pelicula":
+
                 if (!idPeliculas.isEmpty()) {
                     mayor = idPeliculas.get(0);
                     for (int i = 0; i < idPeliculas.size(); i++) {
-                        if (mayor < idPeliculas.get(i)) {
+
+                        if (mayor <= idPeliculas.get(i)) {
+
                             mayor = idPeliculas.get(i);
+
                         }
 
                     }
-                    id = mayor++;
+                    id = ++mayor;
                 } else {
                     id = 1;
                 }
 
                 break;
             case "cliente":
-                if (!idPeliculas.isEmpty()) {
+            /*
+                if (!idClientes.isEmpty()) {
                     mayor = idClientes.get(0);
                     for (int i = 0; i < idClientes.size(); i++) {
-                        if (mayor < idClientes.get(i)) {
+                        if (mayor <= idClientes.get(i)) {
                             mayor = idClientes.get(i);
                         }
 
                     }
-                    id = mayor++;
+                    id = ++mayor;
                 } else {
                     id = 1;
                 }
-                break;
+                break;*/
             case "compra":
-                if (!idPeliculas.isEmpty()) {
-                    mayor = idCompras.get(0);
-                    for (int i = 0; i < idCompras.size(); i++) {
-                        if (mayor < idCompras.get(i)) {
-                            mayor = idCompras.get(i);
+                if (!this.idCompras.isEmpty()) {
+                    mayor = this.idCompras.get(0);
+                    for (int i = 0; i < this.idCompras.size(); i++) {
+                        if (mayor <= this.idCompras.get(i)) {
+
+                            mayor = this.idCompras.get(i);
                         }
                     }
-                    id = mayor++;
+                    id = ++mayor;
                 } else {
                     id = 1;
                 }

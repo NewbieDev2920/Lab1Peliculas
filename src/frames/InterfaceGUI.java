@@ -4,9 +4,18 @@
  */
 package frames;
 
+import classes.Cliente;
+import classes.Compra;
+import classes.JSONHandler;
+import classes.Pelicula;
+import classes.Query;
+import classes.ValidateId;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -19,11 +28,19 @@ public class InterfaceGUI extends javax.swing.JFrame {
      * Creates new form InterfaceGUI
      */
     int swBusquedaPelicula = 0;
-    int width = 410; 
+    int width = 410;
     int height = 310;
     Dimension size = new Dimension(width, height);
-    
+
+    //CONEXION CON BACKEND---
+    JSONHandler file = new JSONHandler();
+    ValidateId val = new ValidateId(file.getListaPeliculas(), file.getListaClientes(), file.getListaCompras());
+    Pelicula pSeleccionado = null;
+    Cliente clSeleccionado = null;
+
+    //-----------------------
     public InterfaceGUI() {
+
         initComponents();
 
         //Se definen dimensiones y posición del Jframe
@@ -82,10 +99,11 @@ public class InterfaceGUI extends javax.swing.JFrame {
         lblTitulo3 = new javax.swing.JLabel();
         btnRegresar3 = new javax.swing.JButton();
         txtBusqueda = new javax.swing.JTextField();
-        jTextArea1 = new javax.swing.JTextArea();
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnBuscarT = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         panelClientesRegistrar = new javax.swing.JPanel();
         lblTitulo7 = new javax.swing.JLabel();
         lblSub6 = new javax.swing.JLabel();
@@ -95,6 +113,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         panelClientesBuscar = new javax.swing.JPanel();
         lblTitulo8 = new javax.swing.JLabel();
         btnRegresar4 = new javax.swing.JButton();
@@ -426,10 +445,12 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -445,24 +466,33 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout panelPeliculasBuscar2Layout = new javax.swing.GroupLayout(panelPeliculasBuscar2);
         panelPeliculasBuscar2.setLayout(panelPeliculasBuscar2Layout);
         panelPeliculasBuscar2Layout.setHorizontalGroup(
             panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitulo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnRegresar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextArea1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
-                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPeliculasBuscar2Layout.createSequentialGroup()
+                .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPeliculasBuscar2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPeliculasBuscar2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                            .addComponent(btnRegresar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelPeliculasBuscar2Layout.createSequentialGroup()
+                                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(15, 15, 15))
         );
         panelPeliculasBuscar2Layout.setVerticalGroup(
@@ -474,15 +504,15 @@ public class InterfaceGUI extends javax.swing.JFrame {
                 .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarT))
-                .addGap(18, 18, 18)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPeliculasBuscar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
                     .addComponent(btnModificar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegresar3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         panelClientesRegistrar.setBackground(new java.awt.Color(255, 204, 153));
@@ -575,25 +605,35 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 0, 0));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelClientesRegistrarLayout = new javax.swing.GroupLayout(panelClientesRegistrar);
         panelClientesRegistrar.setLayout(panelClientesRegistrarLayout);
         panelClientesRegistrarLayout.setHorizontalGroup(
             panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTitulo7, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addComponent(lblSub6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelClientesRegistrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtCorreo)
-                    .addComponent(txtCedula)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegistrarClientes2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNombre)
+                    .addComponent(btnRegistrarClientes2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelClientesRegistrarLayout.createSequentialGroup()
+                        .addComponent(btnRegresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelClientesRegistrarLayout.setVerticalGroup(
             panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -613,7 +653,9 @@ public class InterfaceGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrarClientes2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRegresar1)
+                .addGroup(panelClientesRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegresar1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -723,7 +765,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtCedula1.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula1.setForeground(new java.awt.Color(0, 0, 0));
         txtCedula1.setText("Cédula");
         txtCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -739,7 +781,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtDireccion1.setForeground(new java.awt.Color(153, 153, 153));
+        txtDireccion1.setForeground(new java.awt.Color(0, 0, 0));
         txtDireccion1.setText("Dirección");
         txtDireccion1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -755,7 +797,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtNombre1.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombre1.setForeground(new java.awt.Color(0, 0, 0));
         txtNombre1.setText("Nombre Completo");
         txtNombre1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -771,7 +813,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtCorreo1.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo1.setForeground(new java.awt.Color(0, 0, 0));
         txtCorreo1.setText("Correo Electrónico");
         txtCorreo1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -866,7 +908,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
         });
 
         txtFecha.setForeground(new java.awt.Color(153, 153, 153));
-        txtFecha.setText("Fecha (dd/mm/aa)");
+        txtFecha.setText("Fecha (aaaa-mm-dd)");
         txtFecha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtFechaFocusGained(evt);
@@ -953,7 +995,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
         });
 
         txtBusquedaCedula1.setForeground(new java.awt.Color(153, 153, 153));
-        txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
+        txtBusquedaCedula1.setText("Ingrese Fecha (aaaa-mm-dd)");
         txtBusquedaCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtBusquedaCedula1FocusGained(evt);
@@ -1011,6 +1053,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
         );
 
         panelPeliculasModificar.setBackground(new java.awt.Color(255, 153, 153));
+        panelPeliculasModificar.setForeground(new java.awt.Color(0, 0, 0));
         panelPeliculasModificar.setPreferredSize(size);
 
         lblTitulo4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1027,7 +1070,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtTitulo2.setForeground(new java.awt.Color(153, 153, 153));
+        txtTitulo2.setForeground(new java.awt.Color(0, 0, 0));
         txtTitulo2.setText("Título");
         txtTitulo2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -1043,7 +1086,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtDirector1.setForeground(new java.awt.Color(153, 153, 153));
+        txtDirector1.setForeground(new java.awt.Color(0, 0, 0));
         txtDirector1.setText("Director");
         txtDirector1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -1059,7 +1102,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtPrice1.setForeground(new java.awt.Color(153, 153, 153));
+        txtPrice1.setForeground(new java.awt.Color(0, 0, 0));
         txtPrice1.setText("Precio");
         txtPrice1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -1075,7 +1118,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtGenre1.setForeground(new java.awt.Color(153, 153, 153));
+        txtGenre1.setForeground(new java.awt.Color(0, 0, 0));
         txtGenre1.setText("Género");
         txtGenre1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -1091,7 +1134,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
             }
         });
 
-        txtYear1.setForeground(new java.awt.Color(153, 153, 153));
+        txtYear1.setForeground(new java.awt.Color(0, 0, 0));
         txtYear1.setText("Año");
         txtYear1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -1448,13 +1491,12 @@ public class InterfaceGUI extends javax.swing.JFrame {
                                 .addGap(0, 0, 0)
                                 .addComponent(panelClientesRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(panelClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addComponent(panelClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(panelPeliculasBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(panelComprasRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addComponent(panelComprasRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1511,6 +1553,15 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void btnRegistrarPelicula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPelicula1ActionPerformed
         //get todos los campos y se vacian en el objeto
+        Pelicula p = new Pelicula("" + val.generateId("pelicula"), txtTitulo.getText(), txtDirector.getText(), txtYear.getText(), txtGenre.getText(), txtPrice.getText());
+        file.addPelicula(p);
+        try {
+            file.escribirDatos("pelicula");
+        } catch (Exception ex) {
+            Logger.getLogger(InterfaceGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        val.updateLists(file.getListaPeliculas(), file.getListaClientes(), file.getListaCompras());
+        file.logPeliculas();
         txtTitulo.setText("Título");
         txtTitulo.setForeground(new Color(153, 153, 153));
         txtDirector.setText("Director");
@@ -1521,6 +1572,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
         txtPrice.setForeground(new Color(153, 153, 153));
         txtGenre.setText("Género");
         txtGenre.setForeground(new Color(153, 153, 153));
+
     }//GEN-LAST:event_btnRegistrarPelicula1ActionPerformed
 
     private void txtDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDirectorActionPerformed
@@ -1628,12 +1680,15 @@ public class InterfaceGUI extends javax.swing.JFrame {
     private void btnBuscarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPeliculaActionPerformed
         panelPeliculasBuscar1.setVisible(true);
         panelPeliculas.setVisible(false);
+        btnEliminar.setVisible(false);
+        btnModificar.setVisible(false);
     }//GEN-LAST:event_btnBuscarPeliculaActionPerformed
 
     private void btnRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar3ActionPerformed
         swBusquedaPelicula = 0;
         panelPeliculasBuscar1.setVisible(true);
         panelPeliculasBuscar2.setVisible(false);
+        jTextArea1.setText("");
     }//GEN-LAST:event_btnRegresar3ActionPerformed
 
     private void txtBusquedaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaFocusGained
@@ -1679,11 +1734,32 @@ public class InterfaceGUI extends javax.swing.JFrame {
         swBusquedaPelicula = 0;
         panelPeliculasBuscar2.setVisible(false);
         panelPeliculasModificar.setVisible(true);
+        txtTitulo2.setText(pSeleccionado.getTitle());
+        txtDirector1.setText(pSeleccionado.getDirector());
+        txtGenre1.setText(pSeleccionado.getGenre());
+        txtYear.setText(pSeleccionado.getYear());
+        txtPrice1.setText(pSeleccionado.getPrice());
+        jTextArea1.setText("");
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         panelPeliculasModificar.setVisible(false);
         panelPeliculas.setVisible(true);
+        //modificar info
+        file.actualizarDatos("pelicula", pSeleccionado.getIdPelicula(), "title", txtTitulo2.getText());
+        file.actualizarDatos("pelicula", pSeleccionado.getIdPelicula(), "director", txtDirector1.getText());
+        file.actualizarDatos("pelicula", pSeleccionado.getIdPelicula(), "genre", txtGenre1.getText());
+        file.actualizarDatos("pelicula", pSeleccionado.getIdPelicula(), "year", txtYear.getText());
+        file.actualizarDatos("pelicula", pSeleccionado.getIdPelicula(), "price", txtPrice1.getText());
+
+        //Borrar Texto y variable global
+        txtTitulo2.setText("");
+        txtDirector1.setText("");
+        txtGenre1.setText("");
+        txtYear.setText("");
+        txtPrice1.setText("");
+        pSeleccionado = null;
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtTitulo2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTitulo2FocusGained
@@ -1792,6 +1868,29 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void btnRegistrarClientes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClientes2ActionPerformed
         //get todos los campos y se vacian en el objeto
+        jTextField1.setText("");
+        Cliente c = new Cliente(txtCedula.getText(), txtNombre.getText(), txtCorreo.getText(), txtDireccion.getText());
+
+        val.updateLists(file.getListaPeliculas(), file.getListaClientes(), file.getListaCompras());
+        if (val.validateIds("cliente", Integer.parseInt(txtCedula.getText()))) {
+            try {
+                System.out.println("TIENEN EL MISMO ID, VAMOS A BORRAR EL CLIENTE AÑADIDO");
+                jTextField1.setText("CEDULA REPETIDA.");
+                file.eliminarUltimoCliente();
+            } catch (Exception ex) {
+                Logger.getLogger(InterfaceGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            file.addClientes(c);
+
+            try {
+                file.escribirDatos("cliente");
+
+            } catch (Exception ex) {
+                Logger.getLogger(InterfaceGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
         txtCedula.setText("Cédula");
         txtCedula.setForeground(new Color(153, 153, 153));
         txtNombre.setText("Nombre Completo");
@@ -1852,7 +1951,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
         if (txtNombre.getText().equals("")) {
-            txtNombre.setText("Dirección");
+            txtNombre.setText("Nombre Completo");
             txtNombre.setForeground(new Color(153, 153, 153));
         }
     }//GEN-LAST:event_txtNombreFocusLost
@@ -1882,6 +1981,8 @@ public class InterfaceGUI extends javax.swing.JFrame {
     private void btnRegresar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar4ActionPerformed
         panelClientesBuscar.setVisible(false);
         panelClientes.setVisible(true);
+        jTextArea2.setText("");
+        txtBusquedaCedula.setText("");
     }//GEN-LAST:event_btnRegresar4ActionPerformed
 
     private void txtBusquedaCedulaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaCedulaFocusGained
@@ -1905,11 +2006,30 @@ public class InterfaceGUI extends javax.swing.JFrame {
     private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
         panelClientesBuscar.setVisible(false);
         panelClientesModificar.setVisible(true);
+        jTextArea2.setText("");
+        txtBusquedaCedula.setText("");
+        txtNombre.setText(clSeleccionado.getName());
+        txtCedula.setText(clSeleccionado.getIdCliente());
+        txtCorreo.setText(clSeleccionado.getEmail());
+        txtDireccion.setText(clSeleccionado.getAddress());
     }//GEN-LAST:event_btnModificar1ActionPerformed
 
     private void btnGuardarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCActionPerformed
         panelClientesModificar.setVisible(false);
         panelClientes.setVisible(true);
+        
+        file.actualizarDatos("cliente", clSeleccionado.getName(), "name", txtNombre.getText());
+        file.actualizarDatos("cliente", clSeleccionado.getIdCliente(), "idCliente", txtCedula.getText());
+        file.actualizarDatos("cliente", clSeleccionado.getEmail(), "email", txtCorreo.getText());
+        file.actualizarDatos("cliente", clSeleccionado.getAddress(), "address", txtDireccion.getText());
+        
+        clSeleccionado = null;
+        
+        txtNombre.setText("");
+        txtCedula.setText("");
+        txtCorreo.setText("");
+        txtDireccion.setText("");
+        
     }//GEN-LAST:event_btnGuardarCActionPerformed
 
     private void txtCedula1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCedula1FocusGained
@@ -1962,12 +2082,22 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void btnRegistrarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCompraActionPerformed
         //get todos los campos y se vacian en el objeto
+        Compra c = new Compra("" + val.generateId("compra"), txtCedula2.getText(), txtIDPelicula.getText(), txtFecha.getText());
+        file.addCompras(c);
+        try {
+            file.escribirDatos("compra");
+        } catch (Exception ex) {
+            Logger.getLogger(InterfaceGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        val.updateLists(file.getListaPeliculas(), file.getListaClientes(), file.getListaCompras());
+
         txtCedula2.setText("Cédula");
         txtCedula2.setForeground(new Color(153, 153, 153));
         txtIDPelicula.setText("ID Película");
         txtIDPelicula.setForeground(new Color(153, 153, 153));
-        txtFecha.setText("Fecha (dd/mm/aa)");
+        txtFecha.setText("Fecha (aaaa-mm-dd)");
         txtFecha.setForeground(new Color(153, 153, 153));
+
     }//GEN-LAST:event_btnRegistrarCompraActionPerformed
 
     private void btnRegresar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar5ActionPerformed
@@ -1994,7 +2124,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCedula2ActionPerformed
 
     private void txtFechaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFechaFocusGained
-        if (txtFecha.getText().equals("Fecha (dd/mm/aa)")) {
+        if (txtFecha.getText().equals("Fecha (aaaa-mm-dd)")) {
             txtFecha.setText("");
             txtFecha.setForeground(new Color(0, 0, 0));
         }
@@ -2002,7 +2132,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void txtFechaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFechaFocusLost
         if (txtFecha.getText().equals("")) {
-            txtFecha.setText("Fecha (dd/mm/aa)");
+            txtFecha.setText("Fecha (aaaa-mm-dd)");
             txtFecha.setForeground(new Color(153, 153, 153));
         }
     }//GEN-LAST:event_txtFechaFocusLost
@@ -2032,10 +2162,11 @@ public class InterfaceGUI extends javax.swing.JFrame {
     private void btnRegresar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar6ActionPerformed
         panelComprasBuscar.setVisible(false);
         panelCompras.setVisible(true);
+        jTextArea3.setText("");
     }//GEN-LAST:event_btnRegresar6ActionPerformed
 
     private void txtBusquedaCedula1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaCedula1FocusGained
-        if (txtBusquedaCedula1.getText().equals("Ingrese Fecha (dd/mm/aa)")) {
+        if (txtBusquedaCedula1.getText().equals("Ingrese Fecha (aaaa-mm-dd)")) {
             txtBusquedaCedula1.setText("");
             txtBusquedaCedula1.setForeground(new Color(0, 0, 0));
         }
@@ -2043,7 +2174,7 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void txtBusquedaCedula1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBusquedaCedula1FocusLost
         if (txtBusquedaCedula1.getText().equals("")) {
-            txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
+            txtBusquedaCedula1.setText("Ingrese Fecha (aaaa-mm-dd)");
             txtBusquedaCedula1.setForeground(new Color(153, 153, 153));
         }
     }//GEN-LAST:event_txtBusquedaCedula1FocusLost
@@ -2054,23 +2185,59 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void btnBuscarT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarT2ActionPerformed
         // Get text
-        txtBusquedaCedula1.setText("Ingrese Fecha (dd/mm/aa)");
+        txtBusquedaCedula1.setText("Ingrese Fecha (aaaa-mm-dd)");
         txtBusquedaCedula1.setForeground(new Color(153, 153, 153));
+        //txtBusqqueda cedula 1 contiene la fecha
+        Compra co = file.buscarCompra(txtBusquedaCedula1.getText());
+        jTextArea3.setText(co.toString()+"\n");
     }//GEN-LAST:event_btnBuscarT2ActionPerformed
 
     private void btnBuscarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTActionPerformed
+        jTextArea1.setText("");
+        String texto = txtBusqueda.getText();
+        ArrayList<Pelicula> busqueda = null;
+
         if (swBusquedaPelicula == 1) {
             // Get text
+            busqueda = file.buscarPelicula("titulo", texto);
+
+            if (busqueda.isEmpty()) {
+                jTextArea1.setText("No se encontraron resultados");
+                btnEliminar.setVisible(false);
+                btnModificar.setVisible(false);
+            } else {
+                jTextArea1.setText(file.displayPelicula(busqueda));
+                btnEliminar.setVisible(true);
+                btnModificar.setVisible(true);
+                pSeleccionado = busqueda.get(0);
+                System.out.println("TITULO SELECCIONADO: " + pSeleccionado.getTitle());
+            }
             txtBusqueda.setText("Ingrese Título");
             txtBusqueda.setForeground(new Color(153, 153, 153));
         }
         if (swBusquedaPelicula == 2) {
-            // Get text
+
+            busqueda = file.buscarPelicula("director", texto);
+
+            if (busqueda.isEmpty()) {
+                jTextArea1.setText("No se encontraron resultados");
+
+            } else {
+                jTextArea1.setText(file.displayPelicula(busqueda));
+
+            }
+
             txtBusqueda.setText("Ingrese Director");
             txtBusqueda.setForeground(new Color(153, 153, 153));
         }
         if (swBusquedaPelicula == 3) {
-            // Get text
+
+            busqueda = file.buscarPelicula("genero", texto);
+            if (busqueda.isEmpty()) {
+                jTextArea1.setText("No se encontraron resultados");
+            } else {
+                jTextArea1.setText(file.displayPelicula(busqueda));
+            }
             txtBusqueda.setText("Ingrese Género");
             txtBusqueda.setForeground(new Color(153, 153, 153));
         }
@@ -2078,9 +2245,34 @@ public class InterfaceGUI extends javax.swing.JFrame {
 
     private void btnBuscarT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarT1ActionPerformed
         // Get text
-        txtBusquedaCedula.setText("Ingrese Cédula");
-        txtBusquedaCedula.setForeground(new Color(153, 153, 153));
+        String text= txtBusquedaCedula.getText();
+        Cliente busqueda = file.buscarCliente(text);
+        
+        if(busqueda == null){
+            jTextArea2.setText("Sin resultados");
+        }else{
+            jTextArea2.setText(busqueda.toString());
+            clSeleccionado = busqueda;
+        }
     }//GEN-LAST:event_btnBuscarT1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            // TODO add your handling code here:
+            //eliminar info
+            file.eliminarDatos("pelicula", pSeleccionado.getIdPelicula());
+        } catch (Exception ex) {
+            Logger.getLogger(InterfaceGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Borrar info
+        jTextArea1.setText("");
+        pSeleccionado = null;
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2151,9 +2343,11 @@ public class InterfaceGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresarBienvenido;
     private javax.swing.JButton btnRegresarBienvenido1;
     private javax.swing.JButton btnRegresarBienvenido2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblBienvenidos;
     private javax.swing.JLabel lblPregunta;
     private javax.swing.JLabel lblSub;
